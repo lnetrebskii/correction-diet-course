@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "correction-diet-course"
+  },
+  "targets": {
+    "correction-diet-course": {
+      "hosting": {
+        "correction-diet-course": [
+          "correction-diet-course"
+        ]
+      }
+    }
   }
 }

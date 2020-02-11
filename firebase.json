@@ -1,5 +1,20 @@
 {
   "database": {
     "rules": "database.rules.json"
+  },
+  "hosting": {
+    "target": "correction-diet-course",
+    "public": "dist/correction-diet-course",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

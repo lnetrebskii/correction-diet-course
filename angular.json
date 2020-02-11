@@ -120,6 +120,10 @@
               "devServerTarget": "correction-diet-course:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
