@@ -5,14 +5,15 @@ service cloud.firestore {
      function isAuthenticated() {
      	return request.auth.uid !=null;
      }
-     
+
      function isAdmin() {
        return isAuthenticated() &&
           get( /databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
      }
-     
+
      match /users/{userId} {
-       allow read, write: if false;
+       allow read
+       allow write: if false;
      }
 
      match /courses/{courseId} {
