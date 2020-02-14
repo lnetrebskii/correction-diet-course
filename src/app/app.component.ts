@@ -1,11 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AngularFirestore} from "@angular/fire/firestore";
 import 'firebase/firestore';
-import {AngularFireAuth} from "@angular/fire/auth";
-import * as firebase from "firebase";
 import {Observable, of} from "rxjs";
-import {concatMap, map} from "rxjs/operators";
-import {UsersService} from "./services/users.service";
+import {DietAuthService} from "./services/diet-auth.service";
 
 @Component({
   selector: 'app-root',
@@ -22,28 +18,19 @@ export class AppComponent implements OnInit {
 
   pictureUrl$: Observable<string>;
 
-  constructor(private afAuth: AngularFireAuth,
-              private usersService: UsersService) {
+  constructor(private dietAuthService: DietAuthService) {
 
   }
 
   ngOnInit() {
 
-    this.isLoggedIn$ = this.afAuth.authState.pipe(map(user => !!user));
+    this.isLoggedIn$ = this.dietAuthService.isLoggedIn();
 
-    this.isLoggedOut$ = this.isLoggedIn$.pipe(map(loggedIn => !loggedIn));
+    this.isLoggedOut$ = this.dietAuthService.isLoggedOut();
 
-    this.isAdmin$ = this.afAuth.authState.pipe(
-      concatMap(user =>
-        user ? this.usersService.get(user.uid) : of({ isAdmin: false })
-      ),
-      map(user => user.isAdmin)
-    );
+    this.isAdmin$ = this.dietAuthService.isAdmin();
 
-    this.pictureUrl$ =
-      this.afAuth.authState.pipe(
-        map(user => user ? user.photoURL: null)
-      );
+    this.pictureUrl$ = this.dietAuthService.getPictureUrl();
 
   }
 
@@ -55,7 +42,7 @@ export class AppComponent implements OnInit {
 
   logout() {
 
-    firebase.auth().signOut();
+    this.dietAuthService.signOut();
 
   }
 

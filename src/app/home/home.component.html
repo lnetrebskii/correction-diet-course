@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="courses-panel">
+
+  <h3>All Courses</h3>
+
+  <button mat-button class="mat-raised-button mat-accent"
+          *ngIf="isAdmin$ | async"
+          (click)="createCourse()">
+    SCHEDULE NEW
+  </button>
+
+  <mat-tab-group>
+
+    <mat-tab label="Active">
+
+      <courses-card-list (courseEdited)="reloadCourses()"
+                         [courses]="activeCourses$ | async">
+
+      </courses-card-list>
+
+    </mat-tab>
+
+    <mat-tab label="Archived">
+
+      <courses-card-list (courseEdited)="reloadCourses()"
+                         [courses]="archivedCourses$ | async"
+
+      ></courses-card-list>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+
+
+</div>

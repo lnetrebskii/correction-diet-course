@@ -3,7 +3,6 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "target": "correction-diet-course",
     "public": "dist/correction-diet-course",
     "ignore": [
       "firebase.json",
@@ -16,5 +15,9 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }

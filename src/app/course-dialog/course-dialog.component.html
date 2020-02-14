@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+
+    <input matInput
+           placeholder="Title"
+           formControlName="description">
+
+  </mat-form-field>
+
+  <mat-form-field>
+
+        <textarea matInput placeholder="Description"
+                  formControlName="longDescription">
+
+        </textarea>
+
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <input matInput
+           placeholder="Image Url"
+           formControlName="iconUrl">
+
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <input matInput [matDatepicker]="startsOnDatepicker"
+           placeholder="Starts on"
+           formControlName="startsOn">
+    <mat-datepicker-toggle matSuffix
+                           [for]="startsOnDatepicker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #startsOnDatepicker></mat-datepicker>
+
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <input matInput [matDatepicker]="endsOnDatepicker"
+           placeholder="Ends on"
+           formControlName="endsOn">
+    <mat-datepicker-toggle matSuffix
+                           [for]="endsOnDatepicker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #endsOnDatepicker></mat-datepicker>
+
+  </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button class="mat-raised-button mat-primary"
+          *ngIf="!isScheduleNew"
+          (click)="form.valid && save()">
+    Save
+  </button>
+
+  <button class="mat-raised-button mat-primary"
+          *ngIf="isScheduleNew"
+          (click)="form.valid && scheduleNew()">
+    Schedule
+  </button>
+
+</mat-dialog-actions>

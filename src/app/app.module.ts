@@ -16,12 +16,24 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
+import { CourseDialogComponent } from './course-dialog/course-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatCardModule} from "@angular/material/card";
+import {MatTabsModule} from "@angular/material/tabs";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatMomentDateModule} from "@angular/material-moment-adapter";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CoursesCardListComponent,
+    CourseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,15 +42,23 @@ import { HomeComponent } from './home/home.component';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
     AngularFireStorageModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatTabsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatMomentDateModule,
+    MatDatepickerModule
   ],
   providers: [AngularFirestore],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CourseDialogComponent]
 })
 export class AppModule { }
