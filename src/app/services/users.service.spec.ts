@@ -1,40 +1,61 @@
 import { TestBed } from '@angular/core/testing';
 import { UsersService } from './users.service';
+import {AngularFirestore, AngularFirestoreDocument, DocumentData, DocumentSnapshot} from "@angular/fire/firestore";
+import {of} from "rxjs";
 
-fdescribe('UsersService', () => {
+describe('UsersService', () => {
+
+  let firestoreSpy: any;
+
+  function setReturnIdAndData(id: string, data: any) {
+    firestoreSpy.doc.and.callFake(function (docId) {
+      return {
+        get: () => {
+          return of({
+            id: id,
+            data: () => {
+              return data;
+            }
+          })
+        }
+      };
+    });
+  }
+
   beforeEach(() => {
 
-    const { mockFirebase } = require('firestore-jest-mock');
-    // Create a fake firestore with a `users` and `posts` collection
-    mockFirebase({
-      database: {
-        users: [
-          { id: 'abc123', name: 'Homer Simpson' },
-          { id: 'abc456', name: 'Lisa Simpson' },
-        ],
-        posts: [{ id: '123abc', title: 'Really cool title' }],
-      },
-    });
+    firestoreSpy = jasmine.createSpyObj('AngularFirestore', ['doc']);
 
     TestBed.configureTestingModule({
-      imports: []
+      providers: [
+        UsersService,
+        { provide: AngularFirestore, useValue: firestoreSpy }
+      ]
+    });
+
+    setReturnIdAndData("1", { isAdmin: true });
+
+  });
+
+  it('should return DietUser instance', () => {
+
+    const service: UsersService = TestBed.get(UsersService);
+
+    service.get("1").subscribe( user => {
+      expect(user.id).toBeTruthy();
+      expect(user.isAdmin).toBeTruthy();
     });
 
   });
 
-  fit('mock-firebase', () => {
-    const firebase = require('firebase'); // or import firebase from 'firebase';
-    const db = firebase.firestore();
+  it('should call doc once with document id', () => {
 
-    db.collection('users')
-      .get()
-      .then(userDocs => {
-        // write assertions here
-      });
-  });
-
-  it('should be created', () => {
     const service: UsersService = TestBed.get(UsersService);
-    expect(service).toBeTruthy();
+
+    service.get("1").subscribe( user => {
+      expect(firestoreSpy.doc).toHaveBeenCalledTimes(1);
+      expect(firestoreSpy.doc).toHaveBeenCalledWith("users/1");
+    });
+
   });
 });

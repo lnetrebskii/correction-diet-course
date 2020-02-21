@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "correction-diet-course"
+  "defaultProject": "correction-diet-course",
+  "cli": {
+    "analytics": false
+  }
 }
