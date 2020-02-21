@@ -26,6 +26,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import localeRuExtra from '@angular/common/locales/extra/ru';
+registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 
 @NgModule({
   declarations: [

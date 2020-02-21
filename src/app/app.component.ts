@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
 import 'firebase/firestore';
 import {Observable, of} from "rxjs";
 import {DietAuthService} from "./services/diet-auth.service";
@@ -18,7 +18,14 @@ export class AppComponent implements OnInit {
 
   pictureUrl$: Observable<string>;
 
-  constructor(private dietAuthService: DietAuthService) {
+  languages = [
+    { code: 'en', dir: '', label: 'EN'},
+    { code: 'ru', dir: '/ru', label: 'RU'}
+  ];
+
+  constructor(
+    @Inject(LOCALE_ID) public localeId: string,
+    private dietAuthService: DietAuthService) {
 
   }
 

@@ -14,13 +14,15 @@
 
   <mat-card-actions class="course-actions">
 
-    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.url]">
+    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', course.url]"
+            i18n>
       VIEW COURSE
     </button>
 
     <button mat-button class="mat-raised-button mat-accent"
             *ngIf="isAdmin$ | async"
-            (click)="editCourse(course)">
+            (click)="editCourse(course)"
+            i18n>
       EDIT
     </button>
 

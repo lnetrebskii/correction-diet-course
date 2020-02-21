@@ -7,13 +7,16 @@
 
     <input matInput
            placeholder="Title"
+           i18n-placeholder
            formControlName="description">
 
   </mat-form-field>
 
   <mat-form-field>
 
-        <textarea matInput placeholder="Description"
+        <textarea matInput
+                  placeholder="Description"
+                  i18n-placeholder
                   formControlName="longDescription">
 
         </textarea>
@@ -24,6 +27,7 @@
 
     <input matInput
            placeholder="Image Url"
+           i18n-placeholder
            formControlName="iconUrl">
 
   </mat-form-field>
@@ -32,6 +36,7 @@
 
     <input matInput [matDatepicker]="startsOnDatepicker"
            placeholder="Starts on"
+           i18n-placeholder
            formControlName="startsOn">
     <mat-datepicker-toggle matSuffix
                            [for]="startsOnDatepicker">
@@ -44,6 +49,7 @@
 
     <input matInput [matDatepicker]="endsOnDatepicker"
            placeholder="Ends on"
+           i18n-placeholder
            formControlName="endsOn">
     <mat-datepicker-toggle matSuffix
                            [for]="endsOnDatepicker">
@@ -64,14 +70,16 @@
 
   <button class="mat-raised-button mat-primary"
           *ngIf="!isScheduleNew"
-          (click)="form.valid && save()">
+          (click)="form.valid && save()"
+          i18n>
     Save
   </button>
 
   <button class="mat-raised-button mat-primary"
           *ngIf="isScheduleNew"
-          (click)="form.valid && scheduleNew()">
-    Schedule
+          (click)="form.valid && scheduleNew()"
+          i18n>
+    Create
   </button>
 
 </mat-dialog-actions>
