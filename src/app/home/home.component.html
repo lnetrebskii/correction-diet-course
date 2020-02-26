@@ -10,23 +10,31 @@
 
   <mat-tab-group>
 
-    <mat-tab label="Active" i18n-label>
+    <ng-container *ngIf="(activeCourses$ | async) as activeCourses">
 
-      <courses-card-list (courseEdited)="reloadCourses()"
-                         [courses]="activeCourses$ | async">
+      <mat-tab label="Active" i18n-label *ngIf="activeCourses?.length > 0">
 
-      </courses-card-list>
+        <courses-card-list (courseEdited)="reloadCourses()"
+                           [courses]="activeCourses">
 
-    </mat-tab>
+        </courses-card-list>
 
-    <mat-tab label="Archived" i18n-label>
+      </mat-tab>
 
-      <courses-card-list (courseEdited)="reloadCourses()"
-                         [courses]="archivedCourses$ | async"
+    </ng-container>
 
-      ></courses-card-list>
+    <ng-container *ngIf="(archivedCourses$ | async) as archivedCourses">
 
-    </mat-tab>
+      <mat-tab label="Archived" i18n-label *ngIf="archivedCourses?.length > 0">
+
+        <courses-card-list (courseEdited)="reloadCourses()"
+                           [courses]="archivedCourses">
+        </courses-card-list>
+
+      </mat-tab>
+
+    </ng-container>
+
 
   </mat-tab-group>
 

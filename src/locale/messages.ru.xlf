@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
@@ -49,53 +49,40 @@
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">29</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="dcbcf2d9c507cc7efde4bd7fa4962d2c19323eb0" datatype="html">
-        <source>Starts on</source>
-        <target>Начало</target>
+      </trans-unit><trans-unit id="ae78cbe2e07f699217c7488237bdb79850173273" datatype="html">
+        <source>Dates</source><target state="new">Даты</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">37</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="5820e28eeff299d5f1b9d9d78cc515d83ae47dc2" datatype="html">
-        <source>Ends on</source>
-        <target>Окончание</target>
+      </trans-unit><trans-unit id="396111f33ef48eef016cd0eedb7be2ef882d7430" datatype="html">
+        <source>
+    Close
+  </source><target state="new">
+     Закрыть
+  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
+
+
       <trans-unit id="9e0eaab2042cd18d46b66c7fafc914b7e54b91c3" datatype="html">
         <source>
     Save
   </source>
         <target>Сохранить</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8f95ba7d1a20acf0f12f33a6c7e3afc94fb9e72b" datatype="html">
-        <source>
-    Schedule
-  </source>
-        <target>Запланировать</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">81</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context><context context-type="linenumber">60</context></context-group></trans-unit>
+
       <trans-unit id="5ddde4e47e7de2e987bb8d25dd803b9fa4e775cd" datatype="html">
         <source>
     Create
   </source>
         <target>Создать</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">81</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context><context context-type="linenumber">67</context></context-group></trans-unit>
       <trans-unit id="1f360f6968ad81f88da1d34e4a9a855680d81074" datatype="html">
         <source>All Courses</source>
         <target>Все курсы</target>
@@ -117,19 +104,13 @@
       <trans-unit id="b36e1450940b7f6028d8587568c7d669b53f7a06" datatype="html">
         <source>Active</source>
         <target>Текущие</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/home/home.component.html</context><context context-type="linenumber">15</context></context-group></trans-unit>
       <trans-unit id="5124633f6ba30f4d9b29fd0e43c9195a6bcf0f79" datatype="html">
         <source>Archived</source>
         <target>Завершенные</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/home/home.component.html</context><context context-type="linenumber">28</context></context-group></trans-unit>
       <trans-unit id="4eb0bba818bc36919f1eb03c55f6fd7ce9408171" datatype="html">
         <source>
       VIEW COURSE

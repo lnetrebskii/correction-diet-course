@@ -33,29 +33,14 @@
   </mat-form-field>
 
   <mat-form-field>
-
-    <input matInput [matDatepicker]="startsOnDatepicker"
-           placeholder="Starts on"
+    <input matInput
+           placeholder="Dates"
+           [satDatepicker]="courseDates"
            i18n-placeholder
-           formControlName="startsOn">
-    <mat-datepicker-toggle matSuffix
-                           [for]="startsOnDatepicker">
-    </mat-datepicker-toggle>
-    <mat-datepicker #startsOnDatepicker></mat-datepicker>
-
-  </mat-form-field>
-
-  <mat-form-field>
-
-    <input matInput [matDatepicker]="endsOnDatepicker"
-           placeholder="Ends on"
-           i18n-placeholder
-           formControlName="endsOn">
-    <mat-datepicker-toggle matSuffix
-                           [for]="endsOnDatepicker">
-    </mat-datepicker-toggle>
-    <mat-datepicker #endsOnDatepicker></mat-datepicker>
-
+           formControlName="dates">
+    <sat-datepicker #courseDates [rangeMode]="true">
+    </sat-datepicker>
+    <sat-datepicker-toggle matSuffix [for]="courseDates"></sat-datepicker-toggle>
   </mat-form-field>
 
 
@@ -64,7 +49,8 @@
 <mat-dialog-actions>
 
   <button class="mat-raised-button"
-          (click)="close()">
+          (click)="close()"
+          i18n>
     Close
   </button>
 

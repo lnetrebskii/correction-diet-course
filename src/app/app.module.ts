@@ -29,15 +29,12 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import localeRuExtra from '@angular/common/locales/extra/ru';
+import {CoursesModule} from "./courses.module";
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    CoursesCardListComponent,
-    CourseDialogComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +56,8 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
     ReactiveFormsModule,
     MatInputModule,
     MatMomentDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    CoursesModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],

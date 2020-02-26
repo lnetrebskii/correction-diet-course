@@ -3,11 +3,10 @@ import {Course} from '../model/course';
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {CoursesService} from '../services/courses.service';
-import Timestamp = firebase.firestore.Timestamp;
-import * as firebase from 'firebase';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {CourseDialogComponent} from "../course-dialog/course-dialog.component";
 import {DietAuthService} from "../services/diet-auth.service";
+
 
 
 @Component({
@@ -35,8 +34,6 @@ export class HomeComponent implements OnInit {
 
     this.isAdmin$ = this.dietAuthService.isAdmin();
 
-    console.log("IsAdmin: ", this.isAdmin$);
-
     this.reloadCourses();
 
   }
@@ -44,18 +41,14 @@ export class HomeComponent implements OnInit {
   reloadCourses() {
     this.courses$ = this.coursesService.loadAllCourses();
 
-    let now = Timestamp.fromDate(new Date());
-    console.log("Date now: ", now);
-
     this.activeCourses$ = this.courses$.pipe(
       map(courses => courses.filter(
-        course => course.endsOn > now)),
-      tap(courses => console.log("Courses: ", courses))
+        course => course.isActive))
     );
 
     this.archivedCourses$ = this.courses$.pipe(
       map(courses => courses.filter(
-        course => course.endsOn <= now)));
+        course => !course.isActive)));
   }
 
   createCourse() {

@@ -26,7 +26,7 @@ export class DietAuthService {
       concatMap(user =>
         user ? this.usersService.get(user.uid) : of({ isAdmin: false })
       ),
-      map(user => user?.isAdmin)
+      map(user => user ? user.isAdmin : false)
     );
   }
 

@@ -1,39 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="en">
     <body>
       <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
-        <source>Title</source>
+        <source>Title</source><target state="final">Title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
-        <source>Description</source>
+        <source>Description</source><target state="final">Description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="439f1f213619360018cff19bef7bc7fd7be658eb" datatype="html">
-        <source>Image Url</source>
+        <source>Image Url</source><target state="final">Image Url</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ae78cbe2e07f699217c7488237bdb79850173273" datatype="html">
-        <source>Dates</source>
+        <source>Dates</source><target state="final">Dates</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="396111f33ef48eef016cd0eedb7be2ef882d7430" datatype="html">
+      </trans-unit><trans-unit id="396111f33ef48eef016cd0eedb7be2ef882d7430" datatype="html">
         <source>
     Close
-  </source>
+  </source><target state="final">
+    Close
+  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
           <context context-type="linenumber">53</context>
@@ -42,23 +43,21 @@
       <trans-unit id="9e0eaab2042cd18d46b66c7fafc914b7e54b91c3" datatype="html">
         <source>
     Save
-  </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-      </trans-unit>
+  </source><target state="final">
+    Save
+  </target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context><context context-type="linenumber">60</context></context-group></trans-unit>
       <trans-unit id="5ddde4e47e7de2e987bb8d25dd803b9fa4e775cd" datatype="html">
         <source>
     Create
-  </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context>
-          <context context-type="linenumber">67</context>
-        </context-group>
-      </trans-unit>
+  </source><target state="final">
+    Create
+  </target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/course-dialog/course-dialog.component.html</context><context context-type="linenumber">67</context></context-group></trans-unit>
       <trans-unit id="1f360f6968ad81f88da1d34e4a9a855680d81074" datatype="html">
-        <source>All Courses</source>
+        <source>All Courses</source><target state="final">All Courses</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">3</context>
@@ -67,21 +66,23 @@
       <trans-unit id="07fa36ecda7e149d468d4431697628197995e70e" datatype="html">
         <source>
     SCHEDULE NEW
-  </source>
+  </source><target state="final">
+    SCHEDULE NEW
+  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b36e1450940b7f6028d8587568c7d669b53f7a06" datatype="html">
-        <source>Active</source>
+        <source>Active</source><target state="final">Active</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5124633f6ba30f4d9b29fd0e43c9195a6bcf0f79" datatype="html">
-        <source>Archived</source>
+        <source>Archived</source><target state="final">Archived</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">28</context>
@@ -90,7 +91,9 @@
       <trans-unit id="4eb0bba818bc36919f1eb03c55f6fd7ce9408171" datatype="html">
         <source>
       VIEW COURSE
-    </source>
+    </source><target state="final">
+      VIEW COURSE
+    </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/courses-card-list/courses-card-list.component.html</context>
           <context context-type="linenumber">18</context>
@@ -99,28 +102,30 @@
       <trans-unit id="66828a1501cd9d2d3592e3c7742ef232e459e16e" datatype="html">
         <source>
       EDIT
-    </source>
+    </source><target state="final">
+      EDIT
+    </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/courses-card-list/courses-card-list.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4d13a9cd5ed3dcee0eab22cb25198d43886942be" datatype="html">
-        <source>Users</source>
+        <source>Users</source><target state="final">Users</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
-        <source>Login</source>
+        <source>Login</source><target state="final">Login</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
-        <source>Logout</source>
+        <source>Logout</source><target state="final">Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">18</context>

@@ -1,14 +1,14 @@
-import * as firebase from 'firebase';
-import Timestamp = firebase.firestore.Timestamp;
+import {Moment} from "moment";
 
 export interface Course {
   url: string;
-  startsOn: Timestamp;
-  endsOn: Timestamp;
+  startsOn: Moment;
+  endsOn: Moment;
   id:string;
   titles: {
     description:string;
     longDescription: string;
   };
   iconUrl: string;
+  isActive: boolean;
 }

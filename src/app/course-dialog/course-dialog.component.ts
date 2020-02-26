@@ -3,11 +3,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import {CoursesService} from '../services/courses.service';
-import * as firebase from 'firebase';
-import Timestamp = firebase.firestore.Timestamp;
 import * as moment from "moment";
-import {convertToMoment, convertToTimestamp} from "../services/db-utils";
 import {isDefined} from "@angular/compiler/src/util";
+import {Moment} from "moment";
 
 @Component({
   selector: 'course-dialog',
@@ -33,30 +31,53 @@ export class CourseDialogComponent implements OnInit {
 
     const formData = this.isScheduleNew ? this.formDataForCreate() : this.formDataForEdit(course);
 
-
     this.form = fb.group({
       description: [formData.description, Validators.required],
       longDescription: [formData.longDescription,Validators.required],
       iconUrl: [formData.iconUrl,Validators.pattern(/^(http|https):/)],
-      startsOn: [formData.startsOn, Validators.required],
-      endsOn: [formData.endsOn, Validators.required]
+      dates: [{begin: formData.startsOn.toDate(), end: formData.endsOn.toDate()}, Validators.required]
     });
 
   }
 
-  formDataForEdit(course: Course) {
+  ngOnInit() {
+
+  }
+
+  save() {
+
+    this.coursesService.saveCourse(this.course.id, this.getCoursePartial())
+        .subscribe(
+          () => this.dialogRef.close(this.form.value)
+        );
+  }
+
+  scheduleNew() {
+
+    this.coursesService.createCourse(this.getCoursePartial())
+      .subscribe(
+        () => this.dialogRef.close(this.form.value)
+      );
+
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
+
+  private formDataForEdit(course: Course) {
     const formData =
-    {
-      startsOn: convertToMoment(course.startsOn),
-      endsOn: convertToMoment(course.endsOn),
-      iconUrl: course.iconUrl,
-      ...course.titles
-    };
+      {
+        startsOn: course.startsOn,
+        endsOn: course.endsOn,
+        iconUrl: course.iconUrl,
+        ...course.titles
+      };
 
     return formData;
   }
 
-  formDataForCreate() {
+  private formDataForCreate() {
     const formData =
       {
         startsOn: moment(),
@@ -69,54 +90,20 @@ export class CourseDialogComponent implements OnInit {
     return formData;
   }
 
-  ngOnInit() {
-
-  }
-
-  save() {
-
-      const changes = this.form.value;
-
-      console.log("Changes: ", changes);
-
-      this.coursesService.saveCourse(this.course.id, {
-        titles:
-          {
-            description: changes.description,
-            longDescription: changes.longDescription
-          },
-        startsOn: convertToTimestamp(changes.startsOn),
-        endsOn: convertToTimestamp(changes.endsOn),
-        iconUrl: changes.iconUrl
-      })
-        .subscribe(
-          () => this.dialogRef.close(this.form.value)
-        );
-  }
-
-  scheduleNew() {
-
+  private getCoursePartial(): Partial<Course> {
     const changes = this.form.value;
 
-    console.log("Changes: ", changes);
-
-    this.coursesService.createCourse({
+    let changesToSave: Partial<Course> = {
       titles:
         {
           description: changes.description,
           longDescription: changes.longDescription
         },
-      startsOn: convertToTimestamp(changes.startsOn),
-      endsOn: convertToTimestamp(changes.endsOn),
-      iconUrl: changes.iconUrl
-    })
-      .subscribe(
-        () => this.dialogRef.close(this.form.value)
-      );
-  }
-
-  close() {
-    this.dialogRef.close();
+      iconUrl: changes.iconUrl,
+      startsOn: moment(changes.dates.begin),
+      endsOn: moment(changes.dates.end)
+    };
+    return changesToSave;
   }
 
 }

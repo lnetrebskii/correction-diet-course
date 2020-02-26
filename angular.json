@@ -59,6 +59,13 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "ru": {
+              "aot": true,
+              "outputPath": "dist/correction-diet-course-ru",
+              "i18nFile": "src/locale/messages.ru.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ru"
             }
           }
         },
@@ -70,6 +77,9 @@
           "configurations": {
             "production": {
               "browserTarget": "correction-diet-course:build:production"
+            },
+            "ru": {
+              "browserTarget": "correction-diet-course:build:ru"
             }
           }
         },
@@ -125,6 +135,21 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {}
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/locale",
+              "genDir": "src/locale",
+              "defaultLanguage": "en",
+              "languages": [
+                "en",
+                "ru"
+              ]
+            }
+          }
         }
       }
     }
