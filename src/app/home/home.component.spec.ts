@@ -2,7 +2,7 @@ import {async, ComponentFixture, fakeAsync, flush, TestBed, tick} from '@angular
 
 import { HomeComponent } from './home.component';
 import {DebugElement} from "@angular/core";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 import {Course} from "../model/course";
 import {setupCourses} from "../common/test-db-data";
 import Timestamp = firebase.firestore.Timestamp;
@@ -19,6 +19,7 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let el: DebugElement;
   let coursesService: any;
+  let isAdminSubject = new BehaviorSubject(false);
 
   const activeCourses = setupCourses()
     .filter(course => course.isActive);
@@ -30,7 +31,7 @@ describe('HomeComponent', () => {
 
     const coursesServiceSpy = jasmine.createSpyObj('CoursesService', ['loadAllCourses']);
 
-    const dietAuthServiceSpy = jasmine.createSpyObj('DietAuthService', ['isAdmin']);
+    const dietAuthServiceSpy = jasmine.createSpyObj('DietAuthService', {'isAdmin': isAdminSubject});
 
     TestBed.configureTestingModule({
       imports: [
@@ -110,5 +111,32 @@ describe('HomeComponent', () => {
     expect(cardTitles[0].nativeElement.textContent).toContain("Summer correction course");
 
   }));
+
+  it('should show SCHEDULE NEW button to an admin user',() => {
+
+    coursesService.loadAllCourses.and.returnValue(of([]));
+    isAdminSubject.next(true);
+
+    fixture.detectChanges();
+
+    const buttons = el.queryAll(By.css(".mat-accent"));
+
+    expect(buttons.length).toBe(1);
+    expect(buttons[0].nativeElement.textContent).toContain("SCHEDULE NEW");
+
+  });
+
+  it('should NOT show SCHEDULE NEW button to a non-admin user',() => {
+
+    coursesService.loadAllCourses.and.returnValue(of([]));
+    isAdminSubject.next(false);
+
+    fixture.detectChanges();
+
+    const buttons = el.queryAll(By.css(".mat-accent"));
+
+    expect(buttons.length).toBe(0);
+
+  });
 
 });

@@ -3,6 +3,7 @@ import * as firebase from "firebase";
 import * as firebaseui from "firebaseui";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {Router} from "@angular/router";
+import {DietAuthService} from "../services/diet-auth.service";
 
 @Component({
   selector: 'app-login',
@@ -10,34 +11,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
-  ui: firebaseui.auth.AuthUI;
-
   constructor(private router:Router,
-              private ngZone: NgZone) { }
+              private ngZone: NgZone,
+              private dietAuthService: DietAuthService) { }
 
   ngOnInit() {
 
-    const uiConfig = {
-
-      signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
-      ],
-
-      callbacks: {
-
-        signInSuccessWithAuthResult: this
-          .onLoginSuccessful
-          .bind(this)
-
-      }
-
-    };
-
-    this.ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    this.ui.start('#firebaseui-auth-container', uiConfig);
+    this.dietAuthService.initAuthUI('#firebaseui-auth-container', this.onLoginSuccessful)
 
   }
 
@@ -49,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
-    this.ui.delete();
+    this.dietAuthService.terminateAuthUI();
 
   }
 
