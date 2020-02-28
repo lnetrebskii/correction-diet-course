@@ -1,5 +1,5 @@
 # CorrectionDietCourse
-[![Build Status](https://travis-ci.org/lnetrebskii/correction-diet-course.svg?branch=master)](https://travis-ci.org/lnetrebskii/correction-diet-course)
+[![Build Status](https://travis-ci.com/lnetrebskii/correction-diet-course.svg?branch=master)](https://travis-ci.com/lnetrebskii/correction-diet-course)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 

@@ -1,19 +1,19 @@
 language: node_js
 node_js:
-  - "12.0"
+- '12.0'
 branches:
   only:
-    - master
+  - master
 addons:
   chrome: stable
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
-  - npm install
-  - npm run build:prod
-  - ng test --watch=false
+- npm install
+- npm run build:prod
+- ng test --watch=false
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: "wq1xmYjdRZ7ij/7tLCDidSzFlOusiZ9NIHBCo/JQ05rzYU5oMxXVOpIXy7DSVrGVv/k7U6oBd/VyMhFlAdYL9Z1orMPq3qnrnrNnax9cda4OSi7pArY8X6POe1R9O+mI0VkvpPYBGOX3Ou9VpB6t0hyRDTFgBr4JpSO3jnbeQ9DEkbz+ndE7R+LSJ/JHb+3QaLl426Xb3YSFFUHBRhvlLrHD5hq73Ei7h0DnkhdEteaDNgyyal0h43yDQdD7QRd2C9Gvd84p89DrinMtgyaEovirZ0i9MjvlZKlOF81Q7HAdC5rCB9neLS+QcLeFUfXCKVDSNbx9t21QsanC+oXRU4fLSPdVAP8UXrjmIsSkznxFtrbnqKL62wPw2j33TS1WZaOZ+Ey75aTBsW4PS3HLhcFC7S0Y3kTgX5QCBYUxtgHQXP4R5s1KrUoNKk1YOB9l7ifG9/8Qytk9UFX1fFnRnY2by69XJ4RBn+k2fmYdW+Llb7Dki+Uf5GCrDDlnrVHLj/glh4tBA+cY8YAKujLoRQZJ/dmrE2Vm+WENPJitADVi6PYBP+PQqf8JHqqVlOtgoad+UrlWmRWvxfZLEEqZ0xascWQWGX0/ezxjczdYrRcA3Tzxa5e60fgz2gjjXajGgLYBk42pYNs+c/O1Xd5o5ZcMRHYrwoYdFmOxkkHX/bI="
+    secure: "VBl0kGgwGYurRn3bFNncEc9bXWly1lWwH169zG9TjPrx4UevgaePlxP9ROvMEaO/CC1BHXZS7DohO+588etKQNjyxTQnoQK2jMYVNjMrnR3v5UKdKFq4LiUwCIIdiONgBOny2+jP/BMVraPo/5rxhhEEEwDyvk8XM1/0QL5L7r77+LtrlYQx09LIlgJM1Hda/IatTCkWxRr9lPPn1R2fsqKWstjPXRQeIMWMCxASEQCmTzH2ZO2xzG6Uc+6WdgGOfs2jpNuh1jN3kTC+GU0ZDZFGNdO08Tzvda/WPkTngLTn9cp6adHSuOuVUK2VsE2I92ggpp1zuELM+bRSt7b8VXZx+t2zmDmrou213Ke1YDVnDhOHFRC3hCpP7GJUPjXMAAPLW94lxyhyeU+37H/WBaGPK8WZjPDIn5RfQPVvcu0YxqW4mOesvBEgqOiQSgP/2J17POZvYTG8uq+KGGufOkjijf/B4BYzsM1ep0+S8R56s3apObXL5QrOA/1sTQdR0c3qjja2anVafEEfF2e2t4SgQLXv40gB3BPiuDtaDnEmO9CDvdQtM43EOv+BgmaTlI0geNFO9/n12t+ZybROmmhexjqy/lpZ6K020cd1Vwh6WVL0bnrSgnqP90y8zWM3lEWVyDL/SXW7rpiTy60PW6xP1s7pwXq1IwN4FV4InSQ="
